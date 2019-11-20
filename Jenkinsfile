@@ -9,5 +9,10 @@ pipeline {
                 echo 'Running first step in Do Stuff build stage'
             }
         }
+        stage('More Cool Things') {
+            steps {
+                echo 'Wow, more neat things are happening'
+            }
+        }
     }
 }
