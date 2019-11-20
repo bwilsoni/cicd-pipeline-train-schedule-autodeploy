@@ -7,6 +7,7 @@ pipeline {
         stage('Do Stuff') {
             steps{
                 echo 'Running first step in Do Stuff build stage'
+                echo 'Actually do some more stuff here first'
             }
         }
         stage('More Cool Things') {
