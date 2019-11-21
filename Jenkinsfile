@@ -4,15 +4,13 @@ pipeline {
         DOCKER_IMAGE_NAME = "bwilsoni/train-schedule"
     }
     stages {
-        stage('Do Stuff') {
-            steps{
-                echo 'Running first step in Do Stuff build stage'
-                echo 'Actually do some more stuff here first'
+        stage('Build') {
+            when {
+                branch 'dev'
             }
-        }
-        stage('More Cool Things') {
             steps {
-                echo 'Wow, more neat things are happening'
+                echo 'Neat stuff here'
+                echo "Docker image name: $DOCKER_IMAGE_NAME"
             }
         }
     }
