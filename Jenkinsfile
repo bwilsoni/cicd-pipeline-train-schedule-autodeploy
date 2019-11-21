@@ -6,11 +6,15 @@ pipeline {
     stages {
         stage('Build') {
             when {
-                branch 'dev'
+                anyOf {
+                    branch 'dev'
+                    branch 'master'
+                }
             }
             steps {
-                echo 'Neat stuff here'
-                echo "Docker image name: $DOCKER_IMAGE_NAME"
+                echo 'Running build automation'
+                sh './gradlew build --no-daemon'
+                archiveArtifacts artifacts: 'dist/trainSchedule.zip'
             }
         }
     }
